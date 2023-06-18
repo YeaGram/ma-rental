@@ -25,16 +25,9 @@ function MainNavigationLayout() {
     <nav className="flex items-center gap-3 text-secondary-600 ">
       {navigations.map((nav, i) => {
         return (
-          <>
-            <Link
-              key={i}
-              type="link"
-              href={nav.url}
-              className="hover:text-primary-500"
-            >
-              {nav.title}
-            </Link>
-          </>
+          <Link key={i} href={nav.url} className="hover:text-primary-500">
+            {nav.title}
+          </Link>
         );
       })}
       <Button

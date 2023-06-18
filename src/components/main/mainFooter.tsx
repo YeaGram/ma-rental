@@ -10,7 +10,7 @@ export default function MainFooterLayout() {
       list: [
         { title: "OurStory", path: "/about#Story" },
         { title: "Mission", path: "/about#Mission" },
-        { title: "Team", path: "/about#Team" },
+        { title: "Feature", path: "/about#Feature" },
       ],
     },
     {
