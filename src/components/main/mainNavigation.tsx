@@ -12,9 +12,9 @@ export default function MainNavigationLayout() {
   ];
   return (
     <div
-      className={`grid grid-rows-[${
-        active ? "1" : "0"
-      }] overflow-hidden sm:overflow-auto sm:block w-full sm:w-fit`}
+      className={`grid ${
+        active ? "active" : ""
+      } overflow-hidden sm:overflow-auto sm:block w-full sm:w-fit mobileNav`}
     >
       <nav
         className={`min-height-[0]  flex items-center gap-3 text-secondary-600 w-full sm:w-fit sm:flex-row mt-5 py-5 sm:py-0 sm:mt-0 flex-col`}

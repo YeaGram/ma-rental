@@ -16,3 +16,9 @@
 html {
   color-scheme: dark;
 }
+div.mobileNav {
+  grid-template-rows: 0 !important;
+}
+div.mobileNav.active {
+  grid-template-rows: 1fr !important;
+}
