@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${nunito.className} dark:bg-base-500`}>
+      <body className={`${nunito.className} bg-base-500`}>
         <MainHeaderLayout />
         <MainContentWrapper>{children}</MainContentWrapper>
         <MainFooterLayout />
@@ -29,5 +29,9 @@ export default function RootLayout({
 }
 
 function MainContentWrapper({ children }: { children: React.ReactNode }) {
-  return <div id="MainWrapper">{children}</div>;
+  return (
+    <div id="MainWrapper" className="">
+      {children}
+    </div>
+  );
 }
