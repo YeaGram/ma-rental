@@ -1,13 +1,13 @@
 "use client";
 
 type ButtonProps = {
-  variant: "normal" | "ghost";
-  type: string;
+  variant?: "normal" | "ghost";
+  type?: "button" | "link";
   children: React.ReactNode;
-  attrb: React.ButtonHTMLAttributes<HTMLButtonElement>;
-  url: string;
-  classess: string;
-  onClick: () => void;
+  attrb?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  url?: string;
+  className?: string;
+  onClick?: () => void;
 };
 
 export default function Button({
@@ -16,20 +16,20 @@ export default function Button({
   children,
   onClick,
   url,
-  classess,
+  className,
   ...attrb
 }: ButtonProps) {
   if (type === "button") {
     return (
-      <button onClick={onClick} {...attrb} className={classess}>
+      <button onClick={onClick} {...attrb} className={className}>
         {children}
       </button>
     );
   }
 
-  if (type === "anchor") {
+  if (type === "link") {
     return (
-      <a href={url} className={classess} {...attrb}>
+      <a href={url} className={className} {...attrb}>
         {children}
       </a>
     );

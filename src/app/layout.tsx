@@ -1,6 +1,10 @@
 import "./globals.css";
-import { Nunito } from "next/font/google";
 
+// MainComponent
+import MainFooterLayout from "@/components/main/mainFooter";
+import MainHeaderLayout from "@/components/main/mainHeader";
+
+import { Nunito } from "next/font/google";
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
@@ -15,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>
+      <body className={`${nunito.className} dark:bg-base-500`}>
         <MainHeaderLayout />
         <MainContentWrapper>{children}</MainContentWrapper>
         <MainFooterLayout />
@@ -26,20 +30,4 @@ export default function RootLayout({
 
 function MainContentWrapper({ children }: { children: React.ReactNode }) {
   return <div id="MainWrapper">{children}</div>;
-}
-
-function MainHeaderLayout() {
-  return (
-    <header>
-      <MainNavigationLayout />
-    </header>
-  );
-}
-
-function MainNavigationLayout() {
-  return <nav></nav>;
-}
-
-function MainFooterLayout() {
-  return <footer></footer>;
 }
