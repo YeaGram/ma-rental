@@ -1,0 +1,8 @@
+fonts:
+- Staatliches
+- Nunito
+
+colors:
+- primary: #E59500
+- secondary: #E5DADA
+- base: #02040F

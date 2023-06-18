@@ -15,7 +15,31 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>{children}</body>
+      <body className={nunito.className}>
+        <MainHeaderLayout />
+        <MainContentWrapper>{children}</MainContentWrapper>
+        <MainFooterLayout />
+      </body>
     </html>
   );
+}
+
+function MainContentWrapper({ children }: { children: React.ReactNode }) {
+  return <div id="MainWrapper">{children}</div>;
+}
+
+function MainHeaderLayout() {
+  return (
+    <header>
+      <MainNavigationLayout />
+    </header>
+  );
+}
+
+function MainNavigationLayout() {
+  return <nav></nav>;
+}
+
+function MainFooterLayout() {
+  return <footer></footer>;
 }
