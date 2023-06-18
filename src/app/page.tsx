@@ -29,7 +29,7 @@ export default function Home() {
         <h1
           className={`${displayFont.className} text-6xl text-primary-500 text-center px-5`}
         >
-          Unleash creativity with <br /> Ma'Rental.
+          Unleash creativity with <br /> Ma&apos;Rental.
         </h1>
         <p className="text-center mt-2 text-lg">Rent. Shoot. Repeat.</p>
         <Image
@@ -89,8 +89,9 @@ export default function Home() {
             Get Started
           </span>
           <p className="block max-w-md text-center mx-auto mt-10 leading-7 text-xl bg-base-500/70 p-5 rounded-md text-secondary-500">
-            Don't let an empty camera bag hold you back. Dive into the world of
-            MaRental's camera gear and unleash your creative potential.
+            Don&apos;t let an empty camera bag hold you back. Dive into the
+            world of MaRental&apos;s camera gear and unleash your creative
+            potential.
           </p>
           <Link
             href={"/"}
