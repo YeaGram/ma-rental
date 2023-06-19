@@ -1,21 +1,16 @@
-"use client";
 import Button from "@/components/action/button";
 import NavProvider from "@/clientProviders/navItem";
-import { useNavbarContext } from "@/context/navbarContext";
+import NavListClientProvider from "@/clientProviders/navList";
+
+const navigations = [
+  { title: "Products", url: "/products" },
+  { title: "Pricing", url: "/pricing" },
+  { title: "Contact", url: "/contact" },
+];
 
 export default function MainNavigationLayout() {
-  const { active } = useNavbarContext();
-  const navigations = [
-    { title: "Products", url: "/products" },
-    { title: "Pricing", url: "/pricing" },
-    { title: "Contact", url: "/contact" },
-  ];
   return (
-    <div
-      className={`grid ${
-        active ? "active" : ""
-      } overflow-hidden sm:overflow-auto sm:block w-full sm:w-fit mobileNav`}
-    >
+    <NavListClientProvider>
       <nav
         className={`min-height-[0]  flex items-center gap-3 text-secondary-600 w-full sm:w-fit sm:flex-row mt-5 py-5 sm:py-0 sm:mt-0 flex-col`}
       >
@@ -37,6 +32,6 @@ export default function MainNavigationLayout() {
           Sign In
         </Button>
       </nav>
-    </div>
+    </NavListClientProvider>
   );
 }

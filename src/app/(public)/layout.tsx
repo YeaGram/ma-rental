@@ -1,8 +1,6 @@
 import "./globals.css";
-
-// MainComponent
-import MainFooterLayout from "@/components/main/mainFooter";
-import MainHeaderLayout from "@/components/main/mainHeader";
+import MainFooterLayout from "@/app/mainLayouts/mainFooter";
+import MainHeaderLayout from "@/app/mainLayouts/mainHeader";
 
 import { Nunito } from "next/font/google";
 const nunito = Nunito({ subsets: ["latin"] });

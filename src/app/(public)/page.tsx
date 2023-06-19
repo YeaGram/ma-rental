@@ -1,42 +1,25 @@
-import { displayFont } from "@/components/fonts/displayFont";
-import Image from "next/image";
+// API import
 import Link from "next/link";
+import Image from "next/image";
+
+// Componet Ui import
+import { displayFont } from "@/components/fonts/displayFont";
+import { displayedProducts } from "@/data/displayedProduct";
+import { HeroSection } from "./heroSection";
 
 export default function Home() {
-  const displayedProducts = [
-    {
-      name: "Product1",
-      path: "/products/1.png",
-      description:
-        "Capture stunning visuals with our selection of Canon full-frame mirrorless cameras",
-    },
-    {
-      name: "Product2",
-      path: "/products/2.png",
-      description:
-        "Embrace nostalgia and relive the classic charm of vintage film cameras from yesteryears.",
-    },
-    {
-      name: "Product3",
-      path: "/products/3.png",
-      description:
-        "Discover the magic of bokeh with our impressive variety of professional lenses.",
-    },
-  ];
   return (
     <div>
       <div className="relative w-full h-[80dvh] max-h-[500px] grid place-content-center isolate bg-base-500">
-        <h1
-          className={`${displayFont.className} text-6xl text-primary-500 text-center px-5`}
-        >
-          Unleash creativity with <br /> Ma&apos;Rental.
-        </h1>
-        <p className="text-center mt-2 text-lg">Rent. Shoot. Repeat.</p>
-        <Image
-          src={"/hero.png"}
-          alt="hero"
-          fill
-          className="object-cover -z-10 brightness-[0.3] mix-blend-luminosity"
+        <HeroSection
+          title={
+            <>
+              Unleash creativity with <br /> Ma&apos;Rental.
+            </>
+          }
+          slogan="Rent. Shoot. Repeat."
+          imgAlt="Hero"
+          imgURL="/hero.png"
         />
       </div>
       <div className="px-10">
@@ -63,7 +46,7 @@ export default function Home() {
         </div>
       </div>
       <div className="mt-20 px-10">
-        <div className="grid   sm:grid-cols-3  max-w-5xl mx-auto gap-5 gap-y-10 md:gap-y-5 ">
+        <div className="grid sm:grid-cols-3  max-w-5xl mx-auto gap-5 gap-y-10 md:gap-y-5 ">
           {displayedProducts.map((product, i) => (
             <figure key={i} className="group">
               <div className="relative aspect-square isolate  bg-base-500">
