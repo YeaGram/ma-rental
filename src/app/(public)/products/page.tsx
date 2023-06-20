@@ -59,9 +59,9 @@ export default async function Products() {
   
    <div className="max-w-7xl mx-auto grid grid-cols-5 gap-10 mt-10">
 
-      {cameras.map((camera) => {
+      {cameras.map((camera, i) => {
         return (
-          <figure className="relative border-2 border-base-400 p-5">
+          <figure key={i} className="relative border-2 border-base-400 p-5">
             <div className="relative aspect-video ">
               <Image className="object-contain " src={camera.imageUrl} alt="" fill />
             </div>
