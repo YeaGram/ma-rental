@@ -48,7 +48,7 @@ module.exports = {
         radial-gradient(circle, transparent 20%, #02030c 20%,#02030c 80%, transparent 80%, transparent),
         radial-gradient(circle, transparent 20%, #02030c 20%,#02030c 80%, transparent 80%, transparent),linear-gradient(#e5dada 8px, transparent 8px),
         linear-gradient(90deg, #e59500 8px, transparent 8px)`,
-        productPage: 'url("/product-page-bg.jpg")'
+        productPage: 'url("/product-bg.png")',
       },
 
       backgroundSize: {
@@ -59,9 +59,9 @@ module.exports = {
       },
 
       fontSize: {
-        clamp_lg:'clamp(3rem, 5vw, 4rem)'
-      }
+        clamp_lg: "clamp(3rem, 5vw, 4rem)",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@shrutibalasa/tailwind-grid-auto-fit")],
 };

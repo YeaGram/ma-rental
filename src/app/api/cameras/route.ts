@@ -7,6 +7,12 @@ export async function GET(req: Request) {
 
   const brand = searchParams.get("brand") || "";
 
+  const maxProduct = 6;
+  const minCount = brand !== "" ? 6 : maxProduct;
+  const maxResult: number = Number.parseInt(
+    searchParams.get("maxResult") || minCount.toString()
+  );
+
   const domainName = "https://digicamfinder.com";
   const postData = JSON.stringify({
     filters: {
@@ -55,7 +61,7 @@ export async function GET(req: Request) {
     },
     page: 0,
     seed: 1693228898,
-    sortOrder: 4,
+    sortOrder: 3,
   });
   const res = await axios.post(`${domainName}/api/listCameras`, postData);
 
@@ -69,8 +75,11 @@ export async function GET(req: Request) {
 
     const returnData: ReturnData[] = [];
 
+    let count = 1;
     raw.forEach((str: string, i: number) => {
       if (str.length < 5) return;
+
+      if (count > maxResult) return;
 
       const regex = /([^\x00-\x1F]+)\x1A([^\x00-\x1F]+)/g;
       const matches = regex.exec(str);
@@ -89,6 +98,8 @@ export async function GET(req: Request) {
           details,
           brand: searchParams.has("brand") ? brand : "",
         });
+
+        count++;
       }
     });
 

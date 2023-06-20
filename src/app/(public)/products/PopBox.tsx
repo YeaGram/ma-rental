@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { usePopBoxContext } from "@/context/popBoxContext";
 
@@ -27,9 +28,9 @@ export default function PopBox() {
   return (
     <>
       {camData !== undefined && (
-        <div className="w-full max-w-7xl mx-auto left-0top-0 py-5 fixed grid place-content-center z-20">
+        <div className="fixed w-full max-w-7xl mx-auto left-0 top-0 py-5 grid place-content-center z-30">
           <div
-            className="border-base-400 bg-base-500/50 border-2 backdrop-brightness-50 backdrop-blur-sm mx-auto px-10 py-5 shadow-[10px_10px_10px_rgba(0,0,0,0.5)] max-w-lg"
+            className="border-base-400 bg-cover bg-base-500/50 border-2 backdrop-brightness-50 backdrop-blur-sm mx-auto px-10 py-5 shadow-[10px_10px_10px_rgba(0,0,0,0.5)] max-w-lg"
             data-product-code={camData.ProductCode}
           >
             <button onClick={handleClosePopBox} className="text-right w-full">

@@ -4,7 +4,7 @@ import axios from "axios";
 
 import { displayFont } from "@/components/fonts/displayFont";
 
-import OnClick from "@/clientProviders/onClick";
+import OnShowPopbox from "@/app/(public)/products/onShowPopBox";
 
 import getCurrentDomain from "@/utils/getCurrentDomain";
 import PopBox from "./PopBox";
@@ -29,49 +29,53 @@ type _ReturnData = {
 export default async function Products() {
   const cameras = await getCameras({});
   return (
-    <div className="relative w-fit z-30 mx-auto">
+    <div className="relative z-30 mx-auto">
+      <div className="relative min-h-[10rem] grid place-items-center">
+        <h1
+          className={`${displayFont.className} text-clamp_lg leading-10  text-primary-500 sm:w-1/2 px-5 2xl:pl-10 max-w-7xl mx-auto`}
+        >
+          Our Products
+        </h1>
+        <Image
+          className="object-cover inset-0 -z-10 mix-blend-luminosity opacity-30"
+          src={"/product-page-bg.jpg"}
+          alt="product page background"
+          fill
+        />
+      </div>
       <PopBoxContextProvider>
         <PopBox />
-        <div className="relative min-h-[10rem] grid place-items-center">
-          <h1
-            className={`${displayFont.className} text-clamp_lg leading-10  text-primary-500 sm:w-1/2 px-5 2xl:pl-10 max-w-7xl mx-auto`}
-          >
-            Our Products
-          </h1>
-          <Image
-            className="object-cover inset-0 -z-10 mix-blend-luminosity opacity-30"
-            src={"/product-page-bg.jpg"}
-            alt="product page background"
-            fill
-          />
-        </div>
+        <div className="relative mt-10  bg-productPage bg-cover bg-center bg-no-repeat bg-opacity-10 px-5 before:absolute before:inset-0 before:bg-base-500/90">
+          <span className="absolute top-0 h-32 left-0 right-0 z-20 bg-gradient-to-b from-base-500 to-base-500/0"></span>
+          <span className="absolute bottom-0 h-32 left-0 right-0  w-full z-20 bg-gradient-to-b from-base-500 to-base-500/0 rotate-180"></span>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10 mt-10">
-          {cameras.map((camera: _ReturnData, i: number) => {
-            return (
-              <figure
-                key={i}
-                className="relative border-2 border-base-400 p-5 flex flex-col
-                gap-4"
-              >
-                <div className="flex-1">
-                  <div className="relative aspect-video">
-                    <img
-                      className="object-contain relative"
-                      src={camera.imageUrl}
-                      alt={camera.name}
-                    />
+          <div className="max-w-6xl mx-auto gap-y-8 gap-x-5 grid grid-auto-fit-[200px] lg:grid-cols-4 px-3 pb-32">
+            {cameras.map((camera: _ReturnData, i: number) => {
+              return (
+                <figure key={i} className="relative flex flex-col">
+                  <div className="flex-1 ">
+                    <div className="relative aspect-square">
+                      <Image
+                        className="object-contain relative w-full"
+                        src={camera.imageUrl}
+                        alt={camera.name}
+                        fill
+                      />
+                    </div>
+                    <figcaption className="mt-3 font-bold">
+                      {camera.name}
+                    </figcaption>
                   </div>
-                  <figcaption className="mt-3">{camera.name}</figcaption>
-                </div>
-                <OnClick url={camera.details}>
-                  <span className="text-secondary-500/50 underline hover:text-secondary-500">
-                    see details
-                  </span>
-                </OnClick>
-              </figure>
-            );
-          })}
+                  <OnShowPopbox url={camera.details}>
+                    <span className="text-secondary-500/50 underline hover:text-secondary-500">
+                      see details
+                    </span>
+                  </OnShowPopbox>
+                </figure>
+              );
+            })}
+            s
+          </div>
         </div>
       </PopBoxContextProvider>
     </div>

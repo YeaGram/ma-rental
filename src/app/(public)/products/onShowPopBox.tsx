@@ -2,7 +2,7 @@
 
 import { usePopBoxContext } from "@/context/popBoxContext";
 
-export default function OnClick({
+export default function OnShowPopbox({
   children,
   url,
 }: {
