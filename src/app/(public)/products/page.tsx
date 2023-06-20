@@ -63,7 +63,7 @@ export default async function Products() {
         return (
           <figure key={i} className="relative border-2 border-base-400 p-5">
             <div className="relative aspect-video ">
-              <Image className="object-contain " src={camera.imageUrl} alt="" fill />
+              <img className="object-contain absolute" src={camera.imageUrl} alt={camera.name}  />
             </div>
             <figcaption>{camera.name}</figcaption>
             <OnClick url={camera.details}>
