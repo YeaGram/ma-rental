@@ -1,12 +1,18 @@
-"use client"
-import { useRef, useEffect } from "react"
+"use client";
 
+import { usePopBoxContext } from "@/context/popBoxContext";
 
-export default function OnClick({children, url}:{children:React.ReactNode, url?:string}) {
-    
-    function handleClick(event:React.MouseEvent) {
-      console.log("hello World")
-    };
-    
-    return <span onClick={handleClick}>{children}</span>
+export default function OnClick({
+  children,
+  url,
+}: {
+  children: React.ReactNode;
+  url: string;
+}) {
+  const { setPopBox } = usePopBoxContext();
+  function handleClick(event: React.MouseEvent) {
+    setPopBox(`${url}`);
+  }
+
+  return <span onClick={handleClick}>{children}</span>;
 }
