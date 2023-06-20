@@ -28,8 +28,8 @@ export default function RootLayout({
 
 function MainContentWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <div id="MainWrapper" className="">
+    <main id="MainWrapper" className="">
       {children}
-    </div>
+    </main>
   );
 }

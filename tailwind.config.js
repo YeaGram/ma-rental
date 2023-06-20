@@ -48,6 +48,7 @@ module.exports = {
         radial-gradient(circle, transparent 20%, #02030c 20%,#02030c 80%, transparent 80%, transparent),
         radial-gradient(circle, transparent 20%, #02030c 20%,#02030c 80%, transparent 80%, transparent),linear-gradient(#e5dada 8px, transparent 8px),
         linear-gradient(90deg, #e59500 8px, transparent 8px)`,
+        productPage: 'url("/product-page-bg.jpg")'
       },
 
       backgroundSize: {
@@ -56,6 +57,10 @@ module.exports = {
       backgroundPosition: {
         cross: `0px 0px ,50px 50px, 0 -4px,-4px 0`,
       },
+
+      fontSize: {
+        clamp_lg:'clamp(3rem, 5vw, 4rem)'
+      }
     },
   },
   plugins: [],
