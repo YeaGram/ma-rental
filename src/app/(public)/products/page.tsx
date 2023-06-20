@@ -57,7 +57,7 @@ export default async function Products() {
       <Image className="object-cover inset-0 -z-10 mix-blend-luminosity opacity-30" src={"/product-page-bg.jpg"} alt="product page background" fill/>
     </div>
   
-   <div className="max-w-7xl mx-auto grid grid-cols-5 gap-10 mt-10">
+   <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10 mt-10">
 
       {cameras.map((camera, i) => {
         return (
