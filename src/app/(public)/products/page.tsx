@@ -3,6 +3,7 @@ import Image from "next/image";
 import axios from "axios";
 
 import { displayFont } from "@/components/fonts/displayFont";
+import Card from "@/components/card/card";
 
 import OnShowPopbox from "@/app/(public)/products/onShowPopBox";
 
@@ -28,6 +29,7 @@ type _ReturnData = {
 };
 export default async function Products() {
   const cameras = await getCameras({});
+
   return (
     <div className="relative z-30 mx-auto">
       <div className="relative min-h-[10rem] grid place-items-center">
@@ -52,26 +54,13 @@ export default async function Products() {
           <div className="max-w-6xl mx-auto gap-y-8 gap-x-5 grid grid-auto-fit-[200px] lg:grid-cols-4 px-3 pb-32">
             {cameras.map((camera: _ReturnData, i: number) => {
               return (
-                <figure key={i} className="relative flex flex-col">
-                  <div className="flex-1 ">
-                    <div className="relative aspect-square">
-                      <Image
-                        className="object-contain relative w-full"
-                        src={camera.imageUrl}
-                        alt={camera.name}
-                        fill
-                      />
-                    </div>
-                    <figcaption className="mt-3 font-bold">
-                      {camera.name}
-                    </figcaption>
-                  </div>
+                <Card key={i} imgurl={camera.imageUrl} title={camera.name}>
                   <OnShowPopbox url={camera.details}>
                     <span className="text-secondary-500/50 underline hover:text-secondary-500">
                       see details
                     </span>
                   </OnShowPopbox>
-                </figure>
+                </Card>
               );
             })}
             s

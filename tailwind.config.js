@@ -50,7 +50,6 @@ module.exports = {
         linear-gradient(90deg, #e59500 8px, transparent 8px)`,
         productPage: 'url("/product-bg.png")',
       },
-
       backgroundSize: {
         cross: `40px 40px, 100px 100px, 50px 50px, 50px 50px`,
       },
@@ -60,6 +59,23 @@ module.exports = {
 
       fontSize: {
         clamp_lg: "clamp(3rem, 5vw, 4rem)",
+      },
+
+      animation: {
+        fadeIn: "fadeIn ease 350ms",
+      },
+
+      keyframes: {
+        fadeIn: {
+          "0%": {
+            opacity: 0,
+            translate: "0px -40px",
+          },
+          100: {
+            opacity: 1,
+            translate: "0px 0px",
+          },
+        },
       },
     },
   },
